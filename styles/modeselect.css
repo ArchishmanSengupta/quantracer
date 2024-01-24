@@ -1,0 +1,139 @@
+
+#modeselectbutton{
+  color: var(--text_select_color);
+}
+
+
+#modecontainer{
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(3px);
+  z-index: 2;
+}
+
+#modeselect{
+  position: relative;
+  width: 500px;
+  height: 600px;
+  overflow-y: scroll;
+  background: var(--window_background);
+  border-radius: 5px;
+  border: solid 5px var(--window_border);
+  overflow-x: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  scrollbar-color: var(--window_border) var(--window_background);
+}
+
+#modeselect::-webkit-scrollbar{
+  background-color: var(--window_background);
+}
+
+#modeselect::-webkit-scrollbar-thumb{
+  background-color: var(--window_border);
+}
+
+#modesettings{
+  position: absolute;
+  width: 500px;
+  height: 600px;
+  border-radius: 5px;
+  border: solid 5px var(--window_border);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-color: var(--window_border) var(--window_background);
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+#modesettings::-webkit-scrollbar{
+  background: var(--window_background);
+}
+
+#modesettings::-webkit-scrollbar-thumb{
+  background: var(--window_border);
+}
+
+#modesettingsbuttoncontainer{
+  position: absolute;
+  width: 100%;
+}
+
+#modesettingsback{
+  width: 23px;
+  height: 23px;
+  margin-right: 11px;
+}
+
+.modesettingsenter{
+  width: 30px !important;
+  height: 30px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -3px 0px 10px 0px var(--background)
+}
+
+.modesettingsenteropen > img{
+  transition: transform 1s;
+  transform: rotate(180deg);
+
+}
+
+.modesettingsenter > img{
+  transition: transform 1s;
+}
+
+.modesettingsenter:hover > img{
+  transform: rotate(0deg);
+}
+
+
+
+.modesettingsbuttonparent{
+  display: flex;
+}
+
+.modesettingsimage{
+  width: 23px;
+  height: 23px;
+}
+
+#modesettingsback > img{
+  width: 100%;
+  height: 100%;
+}
+
+#modesettingssection{
+  position: absolute;
+  width: 100%;
+  height: 700px;
+  background: var(--window_background);
+}
+
+
+.modeselected{
+  color: var(--text_select_color) !important;
+}
+
+@media screen and (max-width: 800px) {
+  #modeselect{
+    width: 85% !important;
+  }
+
+  #modesettings{
+    width: 85% !important;
+  }
+
+}

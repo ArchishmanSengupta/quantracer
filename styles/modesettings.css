@@ -1,0 +1,87 @@
+.radiolabel{
+
+  color: var(--text_color);
+  font-family: var(--font_family);
+  font-size: 20px;
+
+}
+
+.radiosetting {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+
+  background-color: var(--window_background);
+  border: 5px solid var(--button_background);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.radiosetting:hover{
+  opacity: 1;
+}
+
+
+.radiosettingdisabled:hover{
+  opacity: 0.5;
+}
+
+/* appearance for checked radiobutton */
+.radiosetting:checked {
+  background-color: var(--text_select_color);
+  opacity: 1;
+}
+
+.settinglabel{
+  color: var(--text_color);
+  text-align: center;
+  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-family: var( --font_family);
+}
+
+
+.dateinput{
+  all: unset;
+  position: relative;
+  width: 150px;
+  font-family: var( --font_family);
+  font-size: 20px;
+  height: 50px;
+  background: var(--button_background);
+  border: solid 1px var(--button_border);
+  color: gray;
+  opacity: 0.65;
+  transition: opacity 0.15s;
+  padding-left: 10px;
+  float: left;
+}
+
+.dateinput:hover{
+  opacity: 0.8;
+}
+
+.dateinput:focus{
+  opacity: 1;
+}
+
+.modesettingcheckbox{
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  font-family: var(--font_family);
+  color: var(--text_color);
+  margin-top: 10px;
+  align-items: center;
+}
+
+.modesettingcheckboxinner{
+  width: 30px;
+  height: 30px;
+}

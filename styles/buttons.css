@@ -1,0 +1,44 @@
+
+
+.zulubutton{
+  all: unset;
+  background: var(--button_background);
+  border: solid 1px var(--button_border);
+  text-align: center;
+  user-select: none;
+  opacity: 0.5;
+  font-family: var( --font_family);
+  color: var(--text_color);
+  padding: 10px;
+}
+
+.zulubutton:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+
+
+.zulubutton:disabled{
+  opacity: 0.2 !important;
+}
+
+.modebutton{
+  opacity: 0.3;
+  height:25px;
+  display: flex;
+  justify-content: space-between;
+  align-items:center
+
+}
+
+.modebutton:hover{
+  opacity: 0.5;
+}
+
+.modeselected{
+  opacity: 0.85;
+}
+
+.modeselected:hover{
+  opacity: 0.85;
+}

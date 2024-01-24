@@ -1,0 +1,392 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Quant Racer</title>
+  <meta name="description" content="Speed Quant">
+  <meta name="author" content="Archishman Sengupta">
+
+  <meta property="og:title" content="quantracer">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Modernized mental math training.">
+  <meta property="og:image" content="images/icon.png">
+
+  <link rel="icon" href="./images/favicon.ico">
+
+  <link rel="stylesheet" href="styles/buttons.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/equation.css">
+  <link rel="stylesheet" href="styles/options.css">
+  <link rel="stylesheet" href="styles/toppart.css">
+  <link rel="stylesheet" href="styles/modeselect.css">
+  <link rel="stylesheet" href="styles/themeselect.css">
+  <link rel="stylesheet" href="styles/finishscreen.css">
+  <link rel="stylesheet" href="styles/voice.css">
+  <link rel="stylesheet" href="styles/flashprofile.css">
+
+  <link rel="stylesheet" href="styles/flashanzan.css">
+
+  <link rel="stylesheet" href="styles/profilemodeselect.css">
+
+  <link rel="stylesheet" href="styles/modesettings.css">
+
+  <script src="jquery.min.js"></script>
+
+  <script
+			  src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+			  integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
+			  crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+  </head>
+
+  <script src="template1eqs/voice.js"></script>
+
+  <script src="flashanzanequation.js"></script>
+
+  <script src="template1equation.js"></script>
+  <script src="template1eqs/additionfuncs.js"></script>
+  <script src="template1eqs/multfuncs.js"></script>
+  <script src="template1eqs/subtractionfuncs.js"></script>
+  <script src="template1eqs/division.js"></script>
+  
+  <script src="template1eqs/fractionfuncs.js"></script>
+  <script src="template1eqs/quadraticeqs.js"></script>
+  <script src="template1eqs/trigfuncs.js"></script>
+
+  <script src="template1eqs/celctoffuncs.js"></script>
+  <script src="template1eqs/ftocelcfuncs.js"></script>
+
+  <script src="template1eqs/lbtokgfuncs.js"></script>
+  <script src="template1eqs/kgtolbfuncs.js"></script>
+
+  <script src="template1eqs/intocmfuncs.js"></script>
+  <script src="template1eqs/cmtoinfuncs.js"></script>
+
+  <script src="template1eqs/percentagefuncs.js"></script>
+  <script src="template1eqs/monthnumfuncs.js"></script>
+  <script src="template1eqs/powerfuncs.js"></script>
+  <script src="template1eqs/rootfuncs.js"></script>
+  <script src="template1eqs/linearsystem.js"></script>
+  <script src="template1eqs/calendartoday.js"></script>
+  <script src="template1eqs/clockfuncs.js"></script>
+
+  <script src="options/themes.js"></script>
+  <script src="options/options.js"></script>
+  <script src="options/modemenu.js"></script>
+
+  <script src="template1eqs/finishtest.js"></script>
+  <script src="template1eqs/cpmchart.js"></script>
+  <script src="template1eqs/timer.js"></script>
+
+  <script src="flashprofile/flashprofile.js"></script>
+  <script src="flashprofile/profilechart.js"></script>
+
+  <script src="flashprofile/profilemodemenu.js"></script>
+
+
+  <script src="script.js"></script>
+
+</head>
+
+<body onload="init()" style="opacity: 0">
+  <!-- your content here... -->
+
+  <div id="iconcontainer">
+    <img src="images/icon.png" id="iconlogo"></img>
+  </div>
+
+  <div id = "flashproblems">
+    <div id="options">
+      <div id = "optionsinner">
+        <div class="option" id="timeoption">
+
+          <p class="optiontext">Time</p>
+          <div class="buttonrow">
+            <button class="zulubutton optionbutton textselected 15sbuttontime" id="timeselected" onclick="switchtime('timed'); settime(this,15000)">15s</button>
+            <button class="zulubutton optionbutton 60sbuttontime" onclick="switchtime('timed'); settime(this,60000)">60s</button>
+            <button class="zulubutton optionbutton 120sbuttontime" onclick="switchtime('timed'); settime(this,120000)">120s</button>
+            <button class="zulubutton optionbutton customtimebutton" onclick="showcustomtime()">custom</button>
+          </div>
+        </div>
+
+        <div id="customtimecontainer" style="display:none" onmousedown="closetimecontainer(event)">
+
+          <div id="customtime">
+
+
+            <div id = "customtimeoptions">
+              <button class="zulubutton textselected" id="customtimetimed" onclick="switchtime('timed')">timed</button>
+              <button class="zulubutton" id="customtimeproblems" onclick="switchtime('problems')">problems</button>
+            </div>
+
+            <input class="numinput" placeholder="Seconds..." id="customtimeinp" oninput="customtimetype(event)" onblur="customtimeblur(event)"></input>
+            <button class="zulubutton" id="customtimedone" onclick="customtimedone()">Done</button>
+          </div>
+
+        </div>
+
+        <div class="option" id="difficultyoption">
+
+          <p class="optiontext">Difficulty</p>
+          <div class="difficultyrow">
+            <div class="buttonrow">
+              <button class="zulubutton optionbutton textselected" id="easybutton" onclick="setdifficulty('easy')">easy</button>
+              <button class="zulubutton optionbutton" id="mediumbutton" onclick="setdifficulty('medium')">medium</button>
+              <button class="zulubutton optionbutton" id="hardbutton" onclick="setdifficulty('hard')">hard</button>
+              <button class="zulubutton optionbutton" id="custombutton" onclick="showmodeselect()">custom</button>
+            </div>
+            <div class="voicemoderow">
+
+              <button class="zulubutton optionbutton" id="voicebutton" onclick="voicemodeclick()">voice mode: off</button>
+              <button class="zulubutton optionbutton" id="voicesettings" onclick="showvoicecontainer()" disabled />voice ⚙️</button>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="option" id="modeoption">
+          <p class="optiontext">Mode</p>
+          <div class="buttonrow">
+            <button class="zulubutton optionbutton" id="modeselectbutton" onclick="showmodeselect()">addition</button>
+          </div>
+        </div>
+
+
+        <div class="option" id="themeoption">
+          <p class="optiontext">Theme</p>
+          <div class="buttonrow">
+            <button class="zulubutton optionbutton" id="themeselectbutton" onclick="showthemeselect()">default</button>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+    </div>
+
+
+    <div id="equations">
+
+      <div class="equation" id="template1equation">
+
+        <p class="timercontainer">
+          <canvas class="timershow" style="opacity: 0.1"></canvas>
+          <p id="voicemodetext" style="display: none">Type to begin...</p>
+        </p>
+
+
+
+        <div id="problemandinput">
+          <div id="problemscontainer">
+            <div class="problemmask problemmaskhide"></div>
+            <div class="problems mainproblems" id="template1problems"></div>
+          </div>
+
+          <div class="inpandexample">
+            <div class="numrestart">
+              <input class="numinput maininput" placeholder="Type here" id="template1input" oninput = "template1type(event); template1enter(event)" onkeypress = "template1enter(event,true)"></input>
+              <button id="voicerestart" class="zulubutton" onclick="revoiceproblem()" style="display: none">🗣️</button>
+              <button id="restarttest" class="zulubutton" onclick="restarttest()">↻</button>
+
+            </div>
+            <p class="inputexample">-0.3<br>2/sqrt(3)<br>-inf<br>12:00<br>wednesday<br>etc.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="equation" id="flashanzanequation" style="display:none">
+
+        <p id="flashtext">7932</p>
+
+        <div id="flashinputcontainer">
+          <button id="flashstart" class="zulubutton" onclick="flashstart()">Start</button>
+
+          <div id="flashinputrestart" style="display: none">
+            <input id="flashinput" placeholder="Type here" class="numinput" onkeydown="flashinput(event)" style="display: none"></button>
+            <button id="flashrestart" class="zulubutton" onclick="flashrestart()" style="display: none">↻</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div id="finishscreen" style="display:none">
+
+      <div>
+        <p id="finishcpm" class="finishtext">14 cpm</p>
+        <p id="finishrawcpm" class="finishtext">14 raw cpm</p>
+        <p id="finishcorrect" class="finishtext">23 correct</p>
+        <p id="finishwrong" class="finishtext">5 wrong</p>
+        <p id="finishtime" class="finishtext">time: 60 seconds</p>
+        <p id="finishmode" class="finishtext">mode: addition</p>
+        <p id="finishdifficulty" class="finishtext">difficulty: easy</p>
+        <button id="nexttest" class="zulubutton" onclick="restarttest(); hidefinish()">Next test</button>
+      </div>
+
+      <canvas id="cpmchart"></canvas>
+
+    </div>
+    </div>
+
+  <div id = "modecontainer" onmousedown="removemodefocus(event)" style="display:none">
+    <div id = "modeselect" onmousedown="removemodefocus(event)">
+
+
+    </div>
+
+    <div id = "modesettings" style="display:none">
+
+
+      <div id = "modesettingssection" style="opacity: 0">
+      </div>
+
+      <div id = "modesettingsbuttoncontainer">
+
+        <button id = "modesettingsbutton" class="zulubutton modebutton">
+
+          <p>Hello</p>
+
+        </button>
+
+        <button id = "modesettingsback" class="zulubutton"><img src="images/settingsback.png"></img></button>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id = "themecontainer" onmousedown="removethemefocus(event, this)" style="display:none">
+    <div id = "themeselect" onmousedown="removethemefocus(event, this)">
+
+
+    </div>
+
+    <div id = "themecustomizecontainer" style="display: none">
+
+      <div id = "themecustomize">
+
+        <div class="themesetting">
+          <p>Preset Name</p>
+          <input class="numinput" id="themepresetinput" placeholder="Type here..."  oninput = "themeeditingname(event)"></input>
+        </div>
+
+        <div class="themesetting">
+          <p>Background</p>
+          <div class = "themecolorparent">
+            <input type="color" class="themecolorraw"></input>
+          </div>
+        </div>
+
+        <div class="themesetting">
+          <p>Button Background</p>
+          <div class = "themecolorparent">
+            <input type="color" class="themecolorraw"></input>
+          </div>
+        </div>
+
+        <div class="themesetting">
+          <p>Button Border</p>
+          <div class = "themecolorparent">
+            <input type="color" class="themecolorraw"></input>
+          </div>
+        </div>
+
+        <div class="themesetting">
+          <p>Window Background</p>
+          <div class = "themecolorparent">
+            <input type="color" class="themecolorraw"></input>
+          </div>
+        </div>
+
+        <div class="themesetting">
+          <p>Window Border</p>
+          <div class = "themecolorparent">
+            <input type="color" class="themecolorraw"></input>
+          </div>
+        </div>
+
+        <div class="themesetting">
+          <p>Text Color</p>
+          <div class = "themecolorparent">
+            <input type="color" class="themecolorraw"></input>
+          </div>
+        </div>
+
+        <div class="themesetting">
+          <p>Text Select Color</p>
+          <div class = "themecolorparent">
+            <input type="color" class="themecolorraw"></input>
+          </div>
+        </div>
+
+        <div class="themesetting">
+          <p>Font Family</p>
+          <select id="themefont" oninput = "themeeditingfont(event)">
+            <option value="Arial" style="font-family: Arial">Arial</option>
+            <option value="Monospace" style="font-family: Monospace">Monospace</option>
+            <option value="Cursive" style="font-family: Cursive">Cursive</option>
+            <option value="Times New Roman" style="font-family: 'Times New Roman'">Times New Roman</option>
+          </select>
+        </div>
+
+        <button class="zulubutton" id="deletetheme" onclick="deletethemeediting()">Delete Preset</button>
+
+        <div style="height: 250px;"></div>
+
+      </div>
+
+      <button id = "themesettingsbutton" class = "zulubutton themebutton"></button>
+
+
+    </div>
+
+  </div>
+
+  <div id = "voicecontainer" onclick="removevoicecontainer(event)" style="display:none">
+    <div id = "voicebox">
+
+      <p id="flashanzantitle">Voice Settings</p>
+
+      <div class = "flashsettingstext">
+        <p class="flashlabel">Voice speed: </p>
+      </div>
+
+      <input type="range" min="1" max="7" value="1" class="zuluslider voiceslider" id="voicespeedslider" oninput="getvoicesliders()">
+
+      <div class = "flashsettingstext">
+        <p class="flashlabel">Voice Volume: </p>
+      </div>
+
+      <input type="range" min="1" max="7" value="7" class="zuluslider voiceslider" id="voicevolumeslider" oninput="getvoicesliders()">
+
+      <button class="zulubutton" id="voicetest" onclick="synthesisvoice('394 plus 921', voicerate)">Test voice</button>
+
+      <button class="zulubutton" id="voicedone" onclick="removevoicecontainer(event, true)">Done</button>
+
+
+
+    </div>
+  </div>
+
+</body>
+</html>
