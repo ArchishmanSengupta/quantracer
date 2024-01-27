@@ -6,7 +6,7 @@
   border: solid 1px var(--button_border);
   text-align: center;
   user-select: none;
-  opacity: 0.5;
+  opacity: 2;
   font-family: var( --font_family);
   color: var(--text_color);
   padding: 10px;
