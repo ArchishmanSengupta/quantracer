@@ -39,7 +39,7 @@ let additionpreset = {
     range2: null,
     range3: null,
     doneinit: false,
-    init: basicpresetgen("Number Range 1", "Number Range 2", "Variable Range"),
+    init: basicpresetgen("New Number Range 1", "New Number Range 2", "New Variable Range"),
     setpreset: setpreset,
     matchpreset: matchpreset,
 
